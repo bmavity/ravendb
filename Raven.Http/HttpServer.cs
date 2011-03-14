@@ -379,6 +379,9 @@ namespace Raven.Http
 
         private static void AddHttpCompressionIfClientCanAcceptIt(IHttpContext ctx)
         {
+			//TODO: Mono -- gzip doesn't seem to work at the moment
+			return;
+			/*
             var acceptEncoding = ctx.Request.Headers["Accept-Encoding"];
 
             if (string.IsNullOrEmpty(acceptEncoding))
@@ -396,7 +399,7 @@ namespace Raven.Http
                 ctx.SetResponseFilter(s => new DeflateStream(s, CompressionMode.Compress, true));
             	ctx.Response.AddHeader("Content-Encoding", "deflate");
             }
-
+			*/
         }
 
         private bool AssertSecurityRights(IHttpContext ctx)

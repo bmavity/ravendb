@@ -30,7 +30,8 @@ namespace Raven.Server
     {
         private static void Main(string[] args)
         {
-            if (Environment.UserInteractive)
+			//TODO - Mono -- UserInteractive is always false, so skip this check.
+            if (true || Environment.UserInteractive)
             {
                 try
                 {
